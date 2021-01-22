@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Camera
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-header>
+      <ion-button type="button">
+        <label for="selectFileBtn" class="input-type-file-button">
+          読込
+          <input type="file" id="selectFileBtn" (change)="loadImage($event)" style="display:none;"
+            accept="image/*">
+        </label>
+      </ion-button>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="ion-text-center ion-padding">
+        <img [src]="imageURL || '/assets/shapes.svg'">
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-fab vertical="bottom" horizontal="center" slot="fixed">
+    <ion-fab-button (click)="takePicture()">
+      <ion-icon name="camera"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+</ion-content>
